@@ -1,3 +1,25 @@
+Use Case : Employee Salary Management System Using File Handling
+
+Scenario: You need to build an employee salary management system that reads employee records from a file, calculates their salary, and writes the updated data back to the file.
+
+Tasks:
+
+Create an Employee class with attributes like employee_id, name, and salary.
+Implement a method calculateSalary() which calculates salary based on some business logic (e.g., bonuses, deductions).
+Use file handling to:
+Read employee data from a text file (ifstream).
+Write updated employee data back to the file (ofstream).
+Implement a main function that loads employee records from the file, calculates their salary, and saves the updated records back to the file.
+
+Approach:
+
+File Handling: Use ifstream to read the employee data and ofstream to write the data back after processing.
+Object-Oriented Design: Use a class to represent employees and encapsulate their data.
+Exception Handling: Implement error checking to ensure the file exists and is accessible.
+
+
+
+---
 Use Case : Student Record System with Classes and Objects
 
 Scenario: You need to develop a student record management system for a college. The system should allow the addition of student records, modification, and display of records, as well as calculations like average grades.
