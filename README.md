@@ -266,5 +266,100 @@ int main() {
 }
 ```
 
+
+
+
+
+----
+
+
+
+
+
+```cpp
+#include <iostream>
+#include <fstream>
+#include <vector>
+using namespace std;
+
+class Employee {
+private:
+    int employee_id;
+    string name;
+    double salary;
+
+public:
+    // Constructor
+    Employee(int id, string n, double s) {
+        employee_id = id;
+        name = n;
+        salary = s;
+    }
+
+    // Method to calculate salary (example logic)
+    void calculateSalary() {
+        double bonus = 0.10 * salary;     // 10% bonus
+        double deduction = 0.05 * salary; // 5% deduction
+        salary = salary + bonus - deduction;
+    }
+
+    // Display employee data
+    void display() const {
+        cout << employee_id << " " << name << " " << salary << endl;
+    }
+
+    // Write employee data to file
+    void writeToFile(ofstream &outFile) const {
+        outFile << employee_id << " " << name << " " << salary << endl;
+    }
+};
+
+int main() {
+    ifstream inFile("employees.txt");
+    ofstream outFile("updated_employees.txt");
+
+    // Error handling
+    if (!inFile) {
+        cerr << "Error: Unable to open input file!" << endl;
+        return 1;
+    }
+
+    if (!outFile) {
+        cerr << "Error: Unable to open output file!" << endl;
+        return 1;
+    }
+
+    vector<Employee> employees;
+
+    int id;
+    string name;
+    double salary;
+
+    // Read from file
+    while (inFile >> id >> name >> salary) {
+        Employee emp(id, name, salary);
+        employees.push_back(emp);
+    }
+
+    inFile.close();
+
+    // Process salary
+    for (auto &emp : employees) {
+        emp.calculateSalary();
+    }
+
+    // Write updated data to file
+    for (const auto &emp : employees) {
+        emp.writeToFile(outFile);
+    }
+
+    outFile.close();
+
+    cout << "Salary processing completed. Updated data saved to file." << endl;
+
+    return 0;
+}
+```
+
     return 0;
 }
