@@ -149,7 +149,7 @@ Class and objects: Use a class to represent the student, encapsulating the detai
 ---
 
 
-```
+```cpp
 #include <iostream>
 using namespace std;
 
