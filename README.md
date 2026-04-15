@@ -38,7 +38,6 @@ public:
         cout << "\n";
     }
 
-    // Make a move
     bool makeMove(int row, int col) {
         if(row < 0 || row > 2 || col < 0 || col > 2 || board[row][col] != ' ') {
             cout << "Invalid move! Try again.\n";
@@ -160,7 +159,6 @@ private:
     float marks[5];
 
 public:
-    // Default Constructor
     Student() {
         roll_number = 0;
         name = "Unknown";
@@ -187,7 +185,6 @@ public:
         }
     }
 
-    // Destructor
     ~Student() {
         cout << "Destructor called for Roll No: " << roll_number << endl;
     }
@@ -209,7 +206,6 @@ public:
         }
     }
 
-    // Modify Student
     void modifyStudent(string n, float m[]) {
         name = n;
         for (int i = 0; i < 5; i++) {
@@ -242,20 +238,15 @@ int main() {
     float marks1[5] = {85, 90, 88, 92, 87};
     float marks2[5] = {70, 75, 80, 72, 78};
 
-    // Using Parameterized Constructor
     Student s1(101, "Aman", marks1);
 
-    // Using Overloaded Constructor
     Student s2(102);
 
-    // Adding data later
     s2.addStudent(102, "Riya", marks2);
 
-    // Display Records
     s1.displayStudent();
     s2.displayStudent();
 
-    // Modify Student
     float newMarks[5] = {95, 93, 97, 96, 94};
     s2.modifyStudent("Riya Sharma", newMarks);
 
